@@ -47,8 +47,10 @@ output: revealjs::revealjs_presentation
 ![](images/exp0x01/将镜像拉到宿主机.png)
 
 * ### 实验无人值守安装镜像的有效性
+  * ### 实验几次均内核报错，但重新封装之前的镜像却能正常启动
+![](images/exp0x01/内核报错.png)
 
-[录了个屏，点此即可查看视频]()
+![]()
 
 ---
 
