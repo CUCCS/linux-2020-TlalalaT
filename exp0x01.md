@@ -46,7 +46,9 @@ output: revealjs::revealjs_presentation
 
 ![](images/exp0x01/将镜像拉到宿主机.png)
 
+* ### 实验无人值守安装镜像的有效性
 
+[录了个屏，点此即可查看视频]()
 
 ---
 
