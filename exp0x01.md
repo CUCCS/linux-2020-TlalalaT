@@ -6,6 +6,12 @@ output: revealjs::revealjs_presentation
 
 # 第一章实验
 
+2018级软件工程（移动互联网方向）
+
+201811143007
+
+周玲震
+
 ---
 
 ## 1.无人值守安装Ubuntu18.04镜像
@@ -32,6 +38,10 @@ output: revealjs::revealjs_presentation
 
 ![](images/exp0x01/配置文件修改后.png)
 
+* ### 将老师提供的seed传输至虚拟机相应位置
+
+![](images/exp0x01/传输preseed.png)
+
 * ### 重新生成md5sum.txt
 
 ![](images/exp0x01/权限不够更改权限并重新生成md5.png)
@@ -50,7 +60,15 @@ output: revealjs::revealjs_presentation
   * ### 实验几次均内核报错，但重新封装之前的镜像却能正常启动
 ![](images/exp0x01/内核报错.png)
 
-![]()
+经老师指导，是由于append此行换行，读取不到配置导致内核报错，问题已解决
+
+![](images/exp0x01/错误修改后.png)
+
+安装录屏
+
+<video id="video" controls="" preload="none">
+      <source id="mp4" src="videos/exp0x01测试.mp4" type="video/mp4">
+      </video>
 
 ---
 
