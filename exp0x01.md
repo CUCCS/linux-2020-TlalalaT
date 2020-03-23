@@ -64,11 +64,7 @@ output: revealjs::revealjs_presentation
 
 ![](images/exp0x01/错误修改后.png)
 
-安装录屏
-
-<video id="video" controls="" preload="none">
-      <source id="mp4" src="videos/exp0x01测试.mp4" type="video/mp4">
-      </video>
+* ### [安装过程录屏](https://v.youku.com/v_show/id_XNDYwMDIxNDI4MA==.html)
 
 ---
 
