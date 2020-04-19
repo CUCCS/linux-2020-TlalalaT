@@ -21,15 +21,15 @@ author: zlz
 
 ### 2. Systemd 入门教程：实战篇
 
-*  [(1) 开机启动]()
-*  [(2) 启动服务]()
-*  [(3) 停止服务]()
-*  [(4) 读懂配置文件]()
+*  [(1) 开机启动](https://asciinema.org/a/321329)
+*  [(2) 启动服务](https://asciinema.org/a/321331)
+*  [(3) 停止服务](https://asciinema.org/a/321336)
+*  [(4) 读懂配置文件](https://asciinema.org/a/321340)
 *  (5) [Unit] 区块：启动顺序与依赖关系。
 *  (6) [Service] 区块：启动行为
-*  (7) [Install] 区块
-*  [(8) Target 的配置文件]()
-*  [(9) 修改配置文件后重启]()
+*  [(7) [Install] 区块](https://asciinema.org/a/321373)
+*  [(8) Target 的配置文件](https://asciinema.org/a/321378)
+*  [(9) 修改配置文件后重启](https://asciinema.org/a/321383)
 
 ---
 
@@ -39,6 +39,9 @@ author: zlz
 
   
 * 如何将一个用户添加到一个用户组？
+
+
+
 * 如何查看当前系统的分区表和文件系统详细信息？
 * 如何实现开机自动挂载Virtualbox的共享目录分区？
 * 基于LVM（逻辑分卷管理）的分区如何实现动态扩容和缩减容量？
