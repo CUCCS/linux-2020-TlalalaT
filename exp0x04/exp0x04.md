@@ -21,6 +21,10 @@ author: zlz
 * [cenvert与mogrify的简单使用](https://www.jianshu.com/p/85a86b45c9ed)
 * [linux强大的convert命令](https://blog.csdn.net/wonengguwozai/article/details/53122629)
 
+[试验过程](https://asciinema.org/a/327988)
+
+[水印图片](image/003.jpg)
+
 ---
 
 * 任务二：用bash编写一个文本批处理脚本，对以下附件分别进行批量处理完成相应的数据统计任务：
@@ -33,7 +37,7 @@ author: zlz
 ---
 
 * 任务二：用bash编写一个文本批处理脚本，对以下附件分别进行批量处理完成相应的数据统计任务：
-    * [Web服务器访问日志](data/.web_log.tsv)
+    * [Web服务器访问日志（参考15级师哥yangyisama）](data/.web_log.tsv)
         * √ 统计访问来源主机TOP 100和分别对应出现的总次数
         * √ 统计访问来源主机TOP 100 IP和分别对应出现的总次数
         * √ 统计最频繁被访问的URL TOP 100
@@ -48,4 +52,3 @@ author: zlz
 * [任务二（2014世界杯运动员数据）源代码](code/exp0x04_2.1.sh)
 * [任务二（Web服务器访问日志）源代码](code/exp0x04_2.2.sh)
 * [统计数据](result.md)
-* [travis-ci集成]()
