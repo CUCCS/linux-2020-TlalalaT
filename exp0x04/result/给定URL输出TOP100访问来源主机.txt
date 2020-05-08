@@ -1,0 +1,5 @@
+ exp0x04_2.2.sh -f /ksc.html/shuttle/missions/missions.html
+      1 scooter.pa-x.dec.com
+      1 205.139.35.40
+      1 163.135.192.101
+      1 152.163.192.70
