@@ -171,7 +171,44 @@ We created home.test as root via the sudo command, exactly the same way we creat
     
 * [X] 2台虚拟机使用Internal网络模式连接，其中一台虚拟机上配置DHCP服务，另一台服务器作为DHCP客户端，从该DHCP服务器获取网络地址配置
 
+### 1. 配置服务器端的intnet网卡
 
+服务器端配置
+
+![](image/服务器端网卡.png)
+
+![](image/服务器端internal.png)
+
+配置结果
+
+![](image/服务器端internal结果.png)
+
+### 2. 在服务器端安装isc-dhcp-server
+
+```
+sudo apt update
+sudo apt install isc-dhcp-server
+```
+
+### 3. 修改服务器端配置文件
+
+修改/etc/default/isc-dhcp-server
+
+![](image/isc-dhcp-server.png)
+
+修改/etc/dhcp/dhcpd.conf
+
+![](image/dhcpd-conf.png)
+
+### 4. 配置客户端网卡
+
+![](image/客户端网卡.png)
+
+![](image/客户端internal.png)
+
+实验结果
+
+![](image/dhcp结果.png)
 
 ---
 
@@ -179,7 +216,71 @@ We created home.test as root via the sudo command, exactly the same way we creat
 
 * [X] Linux访问Windows的匿名共享目录
 * [X] Linux访问Windows的用户名密码方式共享目录
-* [X] [下载整个目录](https://indradjy.wordpress.com/2010/04/14/getting-whole-folder-using-smbclient/)
+* [ ] 下载整个目录
+
+### 1. 在Linux上配置Samba服务器
+
+安装Samba
+
+```
+sudo apt update
+# 安装Samba服务器
+sudo apt-get install samba
+# 创建Samba共享专用的用户
+sudo useradd -M -s /sbin/nologin demoUser
+sudo passwd demoUser
+# 创建的用户必须有一个同名的Linux用户，密码是独立的
+sudo smbpasswd -a demoUser
+sudo groupadd demoGroup
+sudo usermod -aG demoGroup demoUser
+# 创建共享文件夹
+sudo mkdir -p srv/samba/demo/
+sudo mkdir -p /srv/samba/guest/
+sudo chgrp -R demoGroup /srv/samba/guest/
+sudo chgrp -R demoGroup /srv/samba/demo/
+sudo chmod 2775 /srv/samba/guest/
+sudo chmod 2770 /srv/samba/demo/
+```
+
+更改服务器设置
+
+```
+# 在/etc/samba/smb.conf 文件尾部追加以下“共享目录”配置
+[guest]  
+    path = /srv/samba/guest/  
+    read only = yes  
+    guest ok = yes
+[demo]
+        path = /srv/samba/demo/
+        read only = no
+        guest ok = no
+        force create mode = 0660
+        force directory mode = 2770
+        force user = demoUser
+        force group = demoGroup
+```
+### 2. 配置Linux Samba客户端
+
+安装Samba客户端
+
+```
+sudo apt updata
+sudo apt-get install smbclient
+```
+
+配置结果
+
+![](image/linuxSamba服务器测试.png)
+
+### 3. Linux访问Windows的匿名共享目录
+
+![](image/linux匿名访问windows.png)
+
+### 4. Linux访问Windows的用户名密码方式共享目录
+
+![](image/linux用户访问windows1.png)
+
+![](image/linux用户访问windows2.png)
 
 ---
 
@@ -195,6 +296,35 @@ wp.sec.cuc.edu.cn A <自行填写第5章实验中配置的WEB服务器的IP地�
 dvwa.sec.cuc.edu.cn CNAME wp.sec.cuc.edu.cn
 ```
 
+### 1. 服务器端安装bind9
+
+```
+sudo apt update
+sudo apt install bind9
+```
+
+### 2. 修改服务器端配置文件
+
+修改/etc/bind/named.conf.local
+
+![](image/修改namedconflocal.png)
+
+修改添加解析记录db.cuc.edu.cn
+
+![](image/添加域名解析配置.png)
+
+重启bind9服务
+
+```
+sudo systectl restart bind9
+```
+
+### 3. 配置客户端
+
+修改配置文件
+
+![](image/DNS客户端设置.png)
+
 ---
 
 ps：config文件夹中保存着实验用到的所有配置文件，shell文件夹中保存着本次实验所编写的shell脚本，shell文件夹中的vars.sh定义许多变量，是配置文件，main.sh是一键部署的入口脚本，调用 ssh-root.sh 配置目标机的root用户免密ssh登录，调用 apt-install.sh 在目标机上安装必要的程序，并对配置文件进行备份，调用 action.sh 在目标机上进行创建用户、创建目录、修改权限、重启服务等必要的操作
@@ -202,8 +332,7 @@ ps：config文件夹中保存着实验用到的所有配置文件，shell文件�
 
 参考资料：
 
-[linux/2017-1/snRNA/ex6/](https://github.com/CUCCS/linux/tree/master/2017-1/snRNA/ex6)
-
-[How To Set Up an NFS Mount on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-18-04)
-
-[Setting up Samba as a Standalone Server](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Standalone_Server)
+* [linux/2017-1/snRNA/ex6/](https://github.com/CUCCS/linux/tree/master/2017-1/snRNA/ex6)
+* [How To Set Up an NFS Mount on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-18-04)
+* [Setting up Samba as a Standalone Server](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Standalone_Server)
+* [Domain Name Service (DNS)](https://ubuntu.com/server/docs/service-domain-name-service-dns)
