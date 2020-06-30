@@ -6,20 +6,20 @@ password="toor"
 keypath="/root/.ssh/id_rsa.pub"
 
 
-WHITE_IP="192.168.56.104"
+WHITE_IP="192.168.56.106"
 FTP_USER="virtual"
-FTP_PASS="password"
+FTP_PASS="123456"
 
 
-CLIENT_IP="192.168.56.104"
+CLIENT_IP="192.168.56.106"
 
 SMB_USER="demoUser"
-SMB_PASS="password"
+SMB_PASS="123456"
 SMB_GROUP="demoGroup"
 
 DHCP_INTERFACE="enp0s10"
 
-INTERFACE_ADDRESS="10.5.5.8"
+INTERFACE_ADDRESS="192.168.56.101"
 
 SUBNET="192.168.56.0"
 

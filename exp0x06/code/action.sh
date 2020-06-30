@@ -1,6 +1,6 @@
 # !/usr/bin/env bash
 
-source /root/vars.sh
+source vars.sh
 
 
 echo $DHCP_INTERFACE;
@@ -121,6 +121,3 @@ service isc-dhcp-server restart
 #DNS
 
 service bind9 restart
-
-
-rm /root/vars.sh

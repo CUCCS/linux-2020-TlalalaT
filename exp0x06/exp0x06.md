@@ -59,7 +59,7 @@ sudo apt install proftpd
 
 ```
 #创建虚拟用户的本地ftp文件夹
-sudo mkdir /home/virtual![](image/)
+sudo mkdir /home/virtual
 #创建用户
 sudo ftpasswd --passwd --file=/etc/proftpd/passwd --name=virtual_ftp --uid=1025 --home=/home/virtual --shell=/bin/false
 #创建用户组
@@ -309,7 +309,7 @@ sudo apt install bind9
 
 ![](image/修改namedconflocal.png)
 
-修改添加解析记录db.cuc.edu.cn
+修改添加解析记录
 
 ![](image/添加域名解析配置.png)
 
